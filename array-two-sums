@@ -1,0 +1,9 @@
+"Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        sum = {}
+        for i, j in enumerate(nums):
+            temp = target - j 
+            if temp in sum: return [sum[temp],i]
+            sum[j]=i
