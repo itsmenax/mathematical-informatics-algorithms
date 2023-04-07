@@ -1,0 +1,32 @@
+"concept of divide and conquer"
+#it divides into multiple subarrays until the subarrays length is 1
+# time complexity O(n*logn)
+
+"""
+1st step: split into two until you reach pair of values
+2nd: sort or swap if needed
+3rd: merge and sort sub-lists and repeat process til u merge into the full list
+"""
+
+def mergesort(a):
+    if len(a)>1:
+        mid = len(a)//2 #it divides and rounds up the number
+        left = mergesort(a[:mid])
+        right = mergesort(a[mid:]) #splitting the list into subarrayss (1st step)
+        return merge(left, right)
+    else:
+        return a
+
+def merge(left,right):
+    a =[] #empty list to begin w
+    i,j=0,0 #starting at the index 0
+    while i<len(left) and j<len(right):
+        if left[i] < right[j]:
+            a.append(left[i]) #using insert is inefficient
+            i += 1 #update the index of the left one so we can move on
+        else:
+            a.append(right[j])
+            j += 1
+    return a + left[i:] + right[:i] #appending those lists tgt
+
+print(mergesort(a))
