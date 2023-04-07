@@ -1,0 +1,11 @@
+a = [4,7,3,5,1,2]
+
+def Selectionsort(a):
+    for i in range(len(a)):
+        ind = i
+    for j in range(i + 1, len(a)):
+        if a[ind] > a[j]:
+            ind = j
+    a[i], a[ind] = a[ind], a[i]
+    return (a)
+print(Selectionsort(a))
