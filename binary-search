@@ -1,0 +1,19 @@
+# binary search, return the index of the searched number or -1 is not found
+a = [4, 24, 33, 43, 56, 66, 78, 79]
+
+def bs(a,x):
+    lb=0 #lower and upper bound
+    ub= len(a)-1
+
+    while lb <= ub: #if our array even exists
+        mid = (ub + lb) // 2  # we need to find the midbound
+        #check for the value in a mid
+        if x == a[mid]:
+            return mid
+        elif x < a[mid]:
+            ub = mid - 1
+        else:
+            lb = mid + 1
+    return -1
+
+print(bs(a, 4))
