@@ -1,0 +1,39 @@
+def F(i):
+    #1 2 3 5 8 13
+    if i > 1:
+        return F(i-2)+ F(i-1)
+    else:
+        return 1
+    return F
+print(F(4))
+"""its not efficient neither not asymptolicly efficient, it calls an another function -> youd solve the same 
+problems multiple times- it calls F(i-1) that calls F(i-2) again then F(i-3) and the F(i-2) will call the following"""
+
+#or
+#O(i), linear
+def Fib(i):
+    f1= 1
+    f2= 2
+    for _ in range(i-2): #it doesnt need a variable so you can use an underscore
+        x= f1+f2
+        f1= f2
+        f2= x
+    return x
+print(Fib(4))
+
+
+
+#even fibonacci numbers
+def even_F(i):
+    f1= 1
+    f2= 2
+    s= 0
+    while f2 <= 4000000:
+        x = f1+f2
+        f1 = f2
+        f2 = x
+        if f1%2==0:
+            s=s+f1
+    return s
+
+print(even_F(4000000))
